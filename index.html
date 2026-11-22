@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anatolii (wayereh) — Frontend Web Developer</title>
-    <!-- Встроенный SVG-фавикон с изумрудным акцентом -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f0e'/><rect x='6' y='6' width='88' height='88' rx='18' fill='none' stroke='%2310b981' stroke-width='6'/><text x='50' y='68' font-size='54' font-family='Arial, sans-serif' font-weight='bold' fill='%2310b981' text-anchor='middle'>W</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +15,7 @@
     <!-- Шапка сайта -->
     <header class="header">
         <div class="container header__inner">
-            <a href="/" class="logo">
+            <a href="#" class="logo">
                 <span class="logo__dot"></span>wayereh<span class="logo__accent">.dev</span>
             </a>
 
@@ -117,7 +116,7 @@
             </div>
         </section>
 
-        <!-- Блок Портфолио с полноширинными карточками-слайдами -->
+        <!-- Блок Портфолио -->
         <section id="projects" class="section section--alt">
             <div class="container">
                 <div class="section-header section-header--flex">
@@ -126,9 +125,9 @@
                         <h2 class="section-title" data-i18n="projects_title">Виконані проєкти</h2>
                     </div>
 
-                    <!-- Кнопки управления слайдером -->
-                    <div class="slider-controls">
-                        <span class="slider-counter"><span id="currentSlide">1</span> / <span id="totalSlides">2</span></span>
+                    <!-- Кнопки управления слайдером (появятся автоматически, когда добавишь 2-й проект) -->
+                    <div class="slider-controls" id="sliderControls">
+                        <span class="slider-counter"><span id="currentSlide">1</span> / <span id="totalSlides">1</span></span>
                         <button class="slider-btn" id="prevBtn" aria-label="Previous project">←</button>
                         <button class="slider-btn" id="nextBtn" aria-label="Next project">→</button>
                     </div>
@@ -147,12 +146,11 @@
                                 <div class="browser-url">https://wayereh.github.io/apex-detailing/</div>
                             </div>
 
-                            <!-- Сюда положи скриншот первого экрана APEX Detailing (например, images/apex-preview.png) -->
                             <div class="project-screenshot">
                                 <img src="images/apex-preview.png" alt="APEX Detailing Landing Page Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="screenshot-fallback" style="display: none;">
                                     <span>APEX DETAILING — PREVIEW</span>
-                                    <small data-i18n="screenshot_hint">Додайте скріншот у папку images/apex-preview.png</small>
+                                    <small>Додайте скріншот у папку images/apex-preview.png</small>
                                 </div>
                             </div>
 
@@ -180,51 +178,6 @@
                                         <li data-i18n="proj1_item2">Інтерактивний калькулятор вартості послуг на чистому JavaScript з миттєвим перерахунком ціни залежно від класу авто та пакету послуг.</li>
                                         <li data-i18n="proj1_item3">Фільтрація галереї виконаних робіт за категоріями та модальні вікна швидкого запису з валідацією полів.</li>
                                         <li data-i18n="proj1_item4">Кросбраузерна оптимізація та деплой проєкту на GitHub Pages.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- ПРОЕКТ 2: Бухгалтерський Помічник (можно заменить на любой новый кейс) -->
-                        <article class="project-slide">
-                            <div class="project-browser-bar">
-                                <div class="browser-dots">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="browser-url">https://wayereh.pythonanywhere.com/</div>
-                            </div>
-
-                            <div class="project-screenshot">
-                                <img src="images/accounting-preview.png" alt="Accounting Assistant Web App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="screenshot-fallback" style="display: none;">
-                                    <span>ACCOUNTING ASSISTANT — FULL-STACK WEB APP</span>
-                                    <small data-i18n="screenshot_hint2">Додайте скріншот у папку images/accounting-preview.png</small>
-                                </div>
-                            </div>
-
-                            <div class="project-body">
-                                <div class="project-body__top">
-                                    <div>
-                                        <h3 class="project-title" data-i18n="proj2_title">Бухгалтерський Помічник — Веб-додаток для фінансових розрахунків</h3>
-                                        <div class="project-tags">
-                                            <span>HTML5 / CSS3</span>
-                                            <span>JavaScript</span>
-                                            <span>Python / Flask</span>
-                                            <span>Dark / Light Theme</span>
-                                        </div>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="https://wayereh.pythonanywhere.com" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-i18n="btn_live">Живе демо ↗</a>
-                                        <a href="https://github.com/wayereh" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
-                                    </div>
-                                </div>
-
-                                <div class="project-implemented">
-                                    <h4 class="implemented-heading" data-i18n="implemented_label">Що було реалізовано:</h4>
-                                    <ul class="implemented-list">
-                                        <li data-i18n="proj2_item1">Адаптивний інтерфейс користувача з перемиканням світлої та темної теми без мерехтіння сторінки.</li>
-                                        <li data-i18n="proj2_item2">Інтерактивний конвертер валют та калькулятор ПДВ для швидких бухгалтерських підрахунків.</li>
-                                        <li data-i18n="proj2_item3">Система авторизації користувачів, особистий кабінет та панель адміністратора на базі Flask.</li>
                                     </ul>
                                 </div>
                             </div>
