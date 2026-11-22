@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatolii (wayereh) — Frontend Web Developer</title>
+    <!-- Встроенный SVG-фавикон с изумрудным акцентом -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f0e'/><rect x='6' y='6' width='88' height='88' rx='18' fill='none' stroke='%2310b981' stroke-width='6'/><text x='50' y='68' font-size='54' font-family='Arial, sans-serif' font-weight='bold' fill='%2310b981' text-anchor='middle'>W</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">
+                <span class="logo__dot"></span>wayereh<span class="logo__accent">.dev</span>
+            </a>
+
+            <nav class="nav">
+                <a href="#about" class="nav__link" data-i18n="nav_about">Про мене</a>
+                <a href="#projects" class="nav__link" data-i18n="nav_projects">Проєкти</a>
+                <a href="#contact" class="nav__link" data-i18n="nav_contact">Контакти</a>
+            </nav>
+
+            <!-- Переключатель языков -->
+            <div class="lang-switcher" role="group" aria-label="Language switcher">
+                <button class="lang-btn active" data-lang="uk">UA</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Первый экран (Hero) -->
+        <section class="hero">
+            <div class="container hero__content">
+                <div class="status-badge">
+                    <span class="status-badge__pulse"></span>
+                    <span data-i18n="hero_status">Відкритий до нових проєктів</span>
+                </div>
+
+                <h1 class="hero__title">
+                    <span data-i18n="hero_greeting">Привіт, я Анатолій —</span><br>
+                    <span class="text-gradient" data-i18n="hero_role">Frontend-розробник</span>
+                </h1>
+
+                <p class="hero__subtitle" data-i18n="hero_subtitle">
+                    Створюю швидкі, адаптивні та сучасні лендінги на чистому коді (HTML5, CSS3, JavaScript, Bootstrap) без важких конструкторів.
+                </p>
+
+                <div class="hero__actions">
+                    <a href="#projects" class="btn btn--primary" data-i18n="hero_btn_projects">Дивитись портфоліо</a>
+                    <a href="#contact" class="btn btn--outline" data-i18n="hero_btn_contact">Обговорити проєкт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок О себе -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">// 01</span>
+                    <h2 class="section-title" data-i18n="about_title">Про мене та підхід до роботи</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card about-card--main">
+                        <p class="about-text" data-i18n="about_p1">
+                            Я спеціалізуюся на сучасній адаптивній верстці та розробці лендінгів під ключ. Не працюю на «конвеєрі» з десятками замовлень одночасно — беру 1–2 проєкти в роботу, щоб приділити 100% уваги деталям та довести код до ідеалу без багів.
+                        </p>
+                        <p class="about-text" data-i18n="about_p2">
+                            Окрім верстки з нуля, швидко знаходжу та виправляю помилки в чужому коді, налаштовую мобільну адаптивність, додаю інтерактивні елементи (калькулятори, фільтри, форми) та допомагаю з публікацією сайту на хостинг або GitHub Pages.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span class="tech-pill">HTML5</span>
+                            <span class="tech-pill">CSS3 / Flexbox / Grid</span>
+                            <span class="tech-pill">JavaScript (ES6+)</span>
+                            <span class="tech-pill">Bootstrap 5</span>
+                            <span class="tech-pill">Responsive Design</span>
+                            <span class="tech-pill">Git / GitHub</span>
+                            <span class="tech-pill">English C1</span>
+                        </div>
+                    </div>
+
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-item__icon">⚡</div>
+                            <div>
+                                <h3 class="feature-item__title" data-i18n="feat1_title">Чистий та швидкий код</h3>
+                                <p class="feature-item__desc" data-i18n="feat1_desc">Ніякого зайвого сміття від конструкторів — сторінки миттєво завантажуються на будь-яких пристроях.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-item__icon">📱</div>
+                            <div>
+                                <h3 class="feature-item__title" data-i18n="feat2_title">Ідеальний адаптив</h3>
+                                <p class="feature-item__desc" data-i18n="feat2_desc">Коректне відображення на смартфонах, планшетах і широкоформатних моніторах у всіх сучасних браузерах.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-item__icon">🌐</div>
+                            <div>
+                                <h3 class="feature-item__title" data-i18n="feat3_title">Англійська C1 та прозорість</h3>
+                                <p class="feature-item__desc" data-i18n="feat3_desc">Працюю з англомовними проєктами без бар'єрів, надаю live-посилання під час розробки та дотримуюсь дедлайнів.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок Портфолио с полноширинными карточками-слайдами -->
+        <section id="projects" class="section section--alt">
+            <div class="container">
+                <div class="section-header section-header--flex">
+                    <div>
+                        <span class="section-tag">// 02</span>
+                        <h2 class="section-title" data-i18n="projects_title">Виконані проєкти</h2>
+                    </div>
+
+                    <!-- Кнопки управления слайдером -->
+                    <div class="slider-controls">
+                        <span class="slider-counter"><span id="currentSlide">1</span> / <span id="totalSlides">2</span></span>
+                        <button class="slider-btn" id="prevBtn" aria-label="Previous project">←</button>
+                        <button class="slider-btn" id="nextBtn" aria-label="Next project">→</button>
+                    </div>
+                </div>
+
+                <!-- Окно слайдера на всю ширину контейнера -->
+                <div class="slider-viewport" id="sliderViewport">
+                    <div class="slider-track" id="sliderTrack">
+
+                        <!-- ПРОЕКТ 1: APEX Detailing -->
+                        <article class="project-slide">
+                            <div class="project-browser-bar">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">https://wayereh.github.io/apex-detailing/</div>
+                            </div>
+
+                            <!-- Сюда положи скриншот первого экрана APEX Detailing (например, images/apex-preview.png) -->
+                            <div class="project-screenshot">
+                                <img src="images/apex-preview.png" alt="APEX Detailing Landing Page Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="screenshot-fallback" style="display: none;">
+                                    <span>APEX DETAILING — PREVIEW</span>
+                                    <small data-i18n="screenshot_hint">Додайте скріншот у папку images/apex-preview.png</small>
+                                </div>
+                            </div>
+
+                            <div class="project-body">
+                                <div class="project-body__top">
+                                    <div>
+                                        <h3 class="project-title" data-i18n="proj1_title">APEX Detailing — Лендінг студії автодетейлінгу</h3>
+                                        <div class="project-tags">
+                                            <span>HTML5</span>
+                                            <span>CSS3</span>
+                                            <span>Vanilla JS</span>
+                                            <span>Responsive</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://wayereh.github.io/apex-detailing/" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-i18n="btn_live">Живе демо ↗</a>
+                                        <a href="https://github.com/wayereh/apex-detailing" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+                                    </div>
+                                </div>
+
+                                <div class="project-implemented">
+                                    <h4 class="implemented-heading" data-i18n="implemented_label">Що було реалізовано:</h4>
+                                    <ul class="implemented-list">
+                                        <li data-i18n="proj1_item1">Адаптивна верстка з нуля на семантичному HTML5 та CSS3 (Flexbox/Grid) з темною преміальною стилістикою.</li>
+                                        <li data-i18n="proj1_item2">Інтерактивний калькулятор вартості послуг на чистому JavaScript з миттєвим перерахунком ціни залежно від класу авто та пакету послуг.</li>
+                                        <li data-i18n="proj1_item3">Фільтрація галереї виконаних робіт за категоріями та модальні вікна швидкого запису з валідацією полів.</li>
+                                        <li data-i18n="proj1_item4">Кросбраузерна оптимізація та деплой проєкту на GitHub Pages.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ПРОЕКТ 2: Бухгалтерський Помічник (можно заменить на любой новый кейс) -->
+                        <article class="project-slide">
+                            <div class="project-browser-bar">
+                                <div class="browser-dots">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="browser-url">https://wayereh.pythonanywhere.com/</div>
+                            </div>
+
+                            <div class="project-screenshot">
+                                <img src="images/accounting-preview.png" alt="Accounting Assistant Web App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="screenshot-fallback" style="display: none;">
+                                    <span>ACCOUNTING ASSISTANT — FULL-STACK WEB APP</span>
+                                    <small data-i18n="screenshot_hint2">Додайте скріншот у папку images/accounting-preview.png</small>
+                                </div>
+                            </div>
+
+                            <div class="project-body">
+                                <div class="project-body__top">
+                                    <div>
+                                        <h3 class="project-title" data-i18n="proj2_title">Бухгалтерський Помічник — Веб-додаток для фінансових розрахунків</h3>
+                                        <div class="project-tags">
+                                            <span>HTML5 / CSS3</span>
+                                            <span>JavaScript</span>
+                                            <span>Python / Flask</span>
+                                            <span>Dark / Light Theme</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://wayereh.pythonanywhere.com" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-i18n="btn_live">Живе демо ↗</a>
+                                        <a href="https://github.com/wayereh" target="_blank" rel="noopener" class="btn btn--outline btn--sm">GitHub</a>
+                                    </div>
+                                </div>
+
+                                <div class="project-implemented">
+                                    <h4 class="implemented-heading" data-i18n="implemented_label">Що було реалізовано:</h4>
+                                    <ul class="implemented-list">
+                                        <li data-i18n="proj2_item1">Адаптивний інтерфейс користувача з перемиканням світлої та темної теми без мерехтіння сторінки.</li>
+                                        <li data-i18n="proj2_item2">Інтерактивний конвертер валют та калькулятор ПДВ для швидких бухгалтерських підрахунків.</li>
+                                        <li data-i18n="proj2_item3">Система авторизації користувачів, особистий кабінет та панель адміністратора на базі Flask.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- Индикаторы-точки под слайдером -->
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+        </section>
+
+        <!-- Блок Контакты -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-box">
+                    <span class="section-tag">// 03</span>
+                    <h2 class="section-title" data-i18n="contact_title">Готові розпочати співпрацю?</h2>
+                    <p class="contact-desc" data-i18n="contact_desc">
+                        Напишіть мені на зручній фриланс-біржі або в месенджері — обговоримо завдання, терміни та вартість вашого сайту.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="https://freelancehunt.com/" target="_blank" rel="noopener" class="contact-card">
+                            <span class="contact-card__label">Freelancehunt</span>
+                            <span class="contact-card__val" data-i18n="contact_fh">Безпечна угода через Сейф ↗</span>
+                        </a>
+                        <a href="https://www.fiverr.com/" target="_blank" rel="noopener" class="contact-card">
+                            <span class="contact-card__label">Fiverr</span>
+                            <span class="contact-card__val" data-i18n="contact_fiverr">International Orders (EN) ↗</span>
+                        </a>
+                        <a href="https://github.com/wayereh" target="_blank" rel="noopener" class="contact-card">
+                            <span class="contact-card__label">GitHub</span>
+                            <span class="contact-card__val">@wayereh ↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>© 2026 Anatolii (wayereh). <span data-i18n="footer_rights">Усі права захищено.</span></p>
+            <p class="footer__stack">Built with clean HTML5, CSS3 & Vanilla JS</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+:root {
+    --bg-main: #090d0c;
+    --bg-alt: #0d1311;
+    --bg-card: #111916;
+    --bg-card-hover: #15201c;
+    --border-color: #1e2d27;
+    --border-accent: rgba(16, 185, 129, 0.45);
+
+    --accent: #10b981;
+    --accent-hover: #059669;
+    --accent-glow: rgba(16, 185, 129, 0.16);
+
+    --text-primary: #f3f7f5;
+    --text-secondary: #9cb0a7;
+    --text-muted: #64786f;
+
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --transition: 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9, 13, 12, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header__inner {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.logo__accent {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav__link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.nav__link:hover {
+    color: var(--accent);
+}
+
+/* Переключатель языков */
+.lang-switcher {
+    display: flex;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.lang-btn:hover {
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background: var(--accent);
+    color: #05140e;
+}
+
+/* Hero секция */
+.hero {
+    padding: 96px 0 84px;
+    background: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 65%);
+}
+
+.hero__content {
+    max-width: 780px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.status-badge__pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.hero__title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 55%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero__subtitle {
+    font-size: 1.12rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 34px;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.btn--sm {
+    padding: 8px 16px;
+    font-size: 0.88rem;
+}
+
+.btn--primary {
+    background: var(--accent);
+    color: #04130d;
+    border: 1px solid var(--accent);
+}
+
+.btn--primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn--outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Общие стили секций */
+.section {
+    padding: 84px 0;
+}
+
+.section--alt {
+    background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header--flex {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* Секция О себе */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+}
+
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+}
+
+.about-text {
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.tech-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 6px 12px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid var(--border-accent);
+    color: #6ee7b7;
+    border-radius: 6px;
+}
+
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color var(--transition);
+}
+
+.feature-item:hover {
+    border-color: var(--border-accent);
+}
+
+.feature-item__icon {
+    font-size: 1.4rem;
+    background: rgba(16, 185, 129, 0.12);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature-item__title {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.feature-item__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Полноширинный слайдер проектов */
+.slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slider-counter {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-right: 6px;
+}
+
+.slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.slider-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #04130d;
+}
+
+.slider-viewport {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Одна карточка проекта во всю ширину */
+.project-slide {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-browser-bar {
+    background: #0b100e;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.browser-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #273730;
+}
+
+.browser-dots span:first-child { background: #ef4444; opacity: 0.7; }
+.browser-dots span:nth-child(2) { background: #f59e0b; opacity: 0.7; }
+.browser-dots span:nth-child(3) { background: #10b981; opacity: 0.7; }
+
+.browser-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--bg-main);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Контейнер для полного скриншота страницы */
+.project-screenshot {
+    width: 100%;
+    background: #070a09;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.project-screenshot img {
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.screenshot-fallback {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0c1411 0%, #12241d 100%);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+}
+
+.screenshot-fallback small {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Описание под скриншотом */
+.project-body {
+    padding: 32px;
+}
+
+.project-body__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+}
+
+.implemented-heading {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.implemented-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+}
+
+.implemented-list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.implemented-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.slider-dot.active {
+    width: 28px;
+    background: var(--accent);
+}
+
+/* Контакты */
+.contact-box {
+    background: linear-gradient(145deg, var(--bg-card) 0%, #0c1713 100%);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    text-align: center;
+}
+
+.contact-desc {
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 12px auto 32px;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.contact-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all var(--transition);
+}
+
+.contact-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.contact-card__label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.contact-card__val {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Подвал */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 28px 0;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer__stack {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+}
+
+/* Адаптив */
+@media (max-width: 860px) {
+    .about-grid,
+    .implemented-list,
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+@media (max-width: 540px) {
+    .hero {
+        padding: 64px 0 56px;
+    }
+
+    .project-body,
+    .about-card,
+    .contact-box {
+        padding: 22px;
+    }
+}
