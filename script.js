@@ -27,10 +27,6 @@ const translations = {
         proj1_item2: "Інтерактивний калькулятор вартості послуг на чистому JavaScript з миттєвим перерахунком ціни залежно від класу авто та пакету послуг.",
         proj1_item3: "Фільтрація галереї виконаних робіт за категоріями та модальні вікна швидкого запису з валідацією полів.",
         proj1_item4: "Кросбраузерна оптимізація та деплой проєкту на GitHub Pages.",
-        proj2_title: "Бухгалтерський Помічник — Веб-додаток для фінансових розрахунків",
-        proj2_item1: "Адаптивний інтерфейс користувача з перемиканням світлої та темної теми без мерехтіння сторінки.",
-        proj2_item2: "Інтерактивний конвертер валют та калькулятор ПДВ для швидких бухгалтерських підрахунків.",
-        proj2_item3: "Система авторизації користувачів, особистий кабінет та панель адміністратора на базі Flask.",
         contact_title: "Готові розпочати співпрацю?",
         contact_desc: "Напишіть мені на зручній фриланс-біржі або в месенджері — обговоримо завдання, терміни та вартість вашого сайту.",
         contact_fh: "Безпечна угода через Сейф ↗",
@@ -64,10 +60,6 @@ const translations = {
         proj1_item2: "Interactive service cost calculator in Vanilla JS with real-time price updates based on vehicle class and package.",
         proj1_item3: "Portfolio gallery category filtering and quick-booking modal windows with form validation.",
         proj1_item4: "Cross-browser optimization and live deployment via GitHub Pages.",
-        proj2_title: "Accounting Assistant — Financial Calculation Web App",
-        proj2_item1: "Responsive UI featuring an instant Dark/Light theme toggle without page-load flash.",
-        proj2_item2: "Interactive currency converter and VAT calculator for fast accounting estimates.",
-        proj2_item3: "User authentication, personal dashboard, and admin panel powered by Python & Flask.",
         contact_title: "Ready to Start Your Project?",
         contact_desc: "Message me on your preferred freelance platform—let's discuss your goals, timeline, and project estimate.",
         contact_fh: "Safe Escrow Collaboration ↗",
@@ -101,10 +93,6 @@ const translations = {
         proj1_item2: "Интерактивный калькулятор стоимости услуг на чистом JavaScript с мгновенным пересчётом цены в зависимости от класса авто и пакета услуг.",
         proj1_item3: "Фильтрация галереи выполненных работ по категориям и модальные окна быстрой записи с валидацией полей.",
         proj1_item4: "Кроссбраузерная оптимизация и деплой проекта на GitHub Pages.",
-        proj2_title: "Бухгалтерский Помощник — Веб-приложение для финансовых расчётов",
-        proj2_item1: "Адаптивный пользовательский интерфейс с переключением светлой и тёмной темы без мерцания страницы.",
-        proj2_item2: "Интерактивный конвертер валют и калькулятор НДС для быстрых бухгалтерских подсчётов.",
-        proj2_item3: "Система авторизации пользователей, личный кабинет и панель администратора на базе Flask.",
         contact_title: "Готовы начать сотрудничество?",
         contact_desc: "Напишите мне на удобной фриланс-бирже — обсудим задачу, сроки и стоимость вашего сайта.",
         contact_fh: "Безопасная сделка через Сейф ↗",
@@ -113,7 +101,7 @@ const translations = {
     }
 };
 
-// Логика переключения языков
+// Переключение языков
 const langButtons = document.querySelectorAll('.lang-btn');
 
 function setLanguage(lang) {
@@ -142,6 +130,7 @@ setLanguage(savedLang);
 // Логика полноширинного слайдера проектов
 const track = document.getElementById('sliderTrack');
 const slides = document.querySelectorAll('.project-slide');
+const sliderControls = document.getElementById('sliderControls');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const dotsContainer = document.getElementById('sliderDots');
@@ -151,47 +140,51 @@ const totalSlidesEl = document.getElementById('totalSlides');
 let currentIndex = 0;
 totalSlidesEl.textContent = slides.length;
 
-// Создаём точки навигации
-slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Go to project ${index + 1}`);
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
+// Если слайд пока один — прячем стрелки и точки, чтобы не путать посетителя
+if (slides.length <= 1) {
+    sliderControls.style.display = 'none';
+    dotsContainer.style.display = 'none';
+} else {
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to project ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-const dots = document.querySelectorAll('.slider-dot');
+    const dots = document.querySelectorAll('.slider-dot');
 
-function goToSlide(index) {
-    if (index < 0) {
-        currentIndex = slides.length - 1;
-    } else if (index >= slides.length) {
-        currentIndex = 0;
-    } else {
-        currentIndex = index;
+    function goToSlide(index) {
+        if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else if (index >= slides.length) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        currentSlideEl.textContent = currentIndex + 1;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
     }
 
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    currentSlideEl.textContent = currentIndex + 1;
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-    });
+    let touchStartX = 0;
+    const viewport = document.getElementById('sliderViewport');
+
+    viewport.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) goToSlide(currentIndex + 1);
+        if (touchEndX - touchStartX > 50) goToSlide(currentIndex - 1);
+    }, { passive: true });
 }
-
-prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-// Поддержка свайпа на мобильных устройствах
-let touchStartX = 0;
-const viewport = document.getElementById('sliderViewport');
-
-viewport.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-viewport.addEventListener('touchend', e => {
-    const touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 50) goToSlide(currentIndex + 1);
-    if (touchEndX - touchStartX > 50) goToSlide(currentIndex - 1);
-}, { passive: true });
